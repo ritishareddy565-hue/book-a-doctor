@@ -1,99 +1,39 @@
-import { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 function BookAppointment() {
-  const [patientName, setPatientName] = useState("");
-  const [doctorName, setDoctorName] = useState("");
-  const [date, setDate] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/appointments/book",
-        {
-          patientName,
-          doctorName,
-          date,
-        }
-      );
-
-      console.log(response.data);
-
-      alert("Appointment Booked Successfully");
-
-      setPatientName("");
-      setDoctorName("");
-      setDate("");
-    } catch (error) {
-      console.log("FULL ERROR:", error);
-      console.log("RESPONSE:", error.response);
-
-      alert("Error Booking Appointment");
-    }
-  };
-
   return (
-    <div
-      style={{
-        width: "400px",
-        margin: "50px auto",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "10px",
-      }}
-    >
-      <h2>🚀 THIS IS BOOK APPOINTMENT PAGE 🚀</h2>
+    <div style={{ padding: "30px" }}>
+      <h1>📅 Book Appointment</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form style={{ maxWidth: "400px" }}>
         <input
           type="text"
           placeholder="Patient Name"
-          value={patientName}
-          onChange={(e) => setPatientName(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
         />
 
         <input
           type="text"
           placeholder="Doctor Name"
-          value={doctorName}
-          onChange={(e) => setDoctorName(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
         />
 
         <input
           type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
         />
 
         <button
           type="submit"
           style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "green",
+            background: "#007bff",
             color: "white",
+            padding: "10px 20px",
             border: "none",
-            cursor: "pointer",
+            borderRadius: "5px",
           }}
         >
-          Book Appointment
+          Confirm Appointment
         </button>
       </form>
     </div>
@@ -101,3 +41,5 @@ function BookAppointment() {
 }
 
 export default BookAppointment;
+    
+           

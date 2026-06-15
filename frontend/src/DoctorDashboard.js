@@ -7,14 +7,10 @@ function DoctorDashboard() {
 
       <h3>Welcome Dr. Anitha</h3>
 
-      <table
-        border="1"
-        cellPadding="10"
-        style={{ marginTop: "20px" }}
-      >
+      <table border="1" cellPadding="10">
         <thead>
           <tr>
-            <th>Patient</th>
+            <th>Patient Name</th>
             <th>Date</th>
             <th>Status</th>
             <th>Action</th>
@@ -29,7 +25,12 @@ function DoctorDashboard() {
 
             <td>
               <button>Approve</button>
-              <button style={{ marginLeft: "10px" }}>
+
+              <button
+                style={{
+                  marginLeft: "10px",
+                }}
+              >
                 Reject
               </button>
             </td>
