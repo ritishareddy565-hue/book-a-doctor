@@ -45,8 +45,6 @@ function App() {
           element={<MyAppointments />}
         />
 
-        <Route path="/profile" element={<Profile />} />
-
         <Route
           path="/doctor-dashboard"
           element={<DoctorDashboard />}
@@ -56,6 +54,8 @@ function App() {
           path="/admin-dashboard"
           element={<AdminDashboard />}
         />
+
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

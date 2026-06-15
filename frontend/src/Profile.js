@@ -2,24 +2,32 @@ import React from "react";
 
 function Profile() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>👤 My Profile</h1>
+    <div className="container mt-5">
+      <div className="card shadow p-4">
 
-      <p><b>Name:</b> Ritisha</p>
-      <p><b>Email:</b> ritisha@gmail.com</p>
-      <p><b>Phone:</b> 9876543210</p>
+        <h2 className="mb-4">👤 Patient Profile</h2>
 
-      <button
-        style={{
-          background: "blue",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          borderRadius: "5px",
-        }}
-      >
-        Update Profile
-      </button>
+        <div className="row">
+
+          <div className="col-md-6">
+            <p><strong>Name:</strong> Ritisha</p>
+            <p><strong>Email:</strong> ritisha@gmail.com</p>
+            <p><strong>Phone:</strong> 9876543210</p>
+          </div>
+
+          <div className="col-md-6">
+            <p><strong>Age:</strong> 20</p>
+            <p><strong>Gender:</strong> Female</p>
+            <p><strong>Blood Group:</strong> O+</p>
+          </div>
+
+        </div>
+
+        <button className="btn btn-primary mt-3">
+          Edit Profile
+        </button>
+
+      </div>
     </div>
   );
 }

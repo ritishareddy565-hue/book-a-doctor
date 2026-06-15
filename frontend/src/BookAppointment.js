@@ -4,12 +4,17 @@ import { useNavigate } from "react-router-dom";
 function BookAppointment() {
   const navigate = useNavigate();
 
-  const [patientName, setPatientName] = useState("");
-  const [doctorName, setDoctorName] = useState("Dr. Anitha");
+  const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!doctorName || !date || !time) {
+      alert("Please fill all fields");
+      return;
+    }
 
     alert("Appointment Booked Successfully!");
 
@@ -17,66 +22,75 @@ function BookAppointment() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>📅 Book Appointment</h1>
+    <div className="container mt-5">
+      <div className="card shadow p-4">
+        <h2 className="text-center mb-4">
+          📅 Book Appointment
+        </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          maxWidth: "400px",
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Patient Name"
-          value={patientName}
-          onChange={(e) => setPatientName(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        />
+        <form onSubmit={handleSubmit}>
 
-        <input
-          type="text"
-          value={doctorName}
-          readOnly
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        />
+          <div className="mb-3">
+            <label className="form-label">
+              Select Doctor
+            </label>
 
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        />
+            <select
+              className="form-control"
+              value={doctorName}
+              onChange={(e) =>
+                setDoctorName(e.target.value)
+              }
+            >
+              <option value="">Choose Doctor</option>
+              <option>Dr. Anitha</option>
+              <option>Dr. Ravi</option>
+              <option>Dr. Priya</option>
+            </select>
+          </div>
 
-        <button
-          type="submit"
-          style={{
-            background: "green",
-            color: "white",
-            padding: "10px",
-            border: "none",
-            borderRadius: "5px",
-          }}
-        >
-          Confirm Appointment
-        </button>
-      </form>
+          <div className="mb-3">
+            <label className="form-label">
+              Appointment Date
+            </label>
+
+            <input
+              type="date"
+              className="form-control"
+              value={date}
+              onChange={(e) =>
+                setDate(e.target.value)
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">
+              Appointment Time
+            </label>
+
+            <input
+              type="time"
+              className="form-control"
+              value={time}
+              onChange={(e) =>
+                setTime(e.target.value)
+              }
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-success w-100"
+          >
+            Confirm Appointment
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 }
 
 export default BookAppointment;
-    
            

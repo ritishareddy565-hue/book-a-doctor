@@ -1,41 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    if (name && email && password) {
+      alert("Registration Successful!");
+
+      navigate("/dashboard");
+    } else {
+      alert("Please fill all fields");
+    }
+  };
+
   return (
-    <div style={{ padding: "40px", textAlign: "center" }}>
+    <div style={{ padding: "30px", textAlign: "center" }}>
       <h1>📝 Register</h1>
 
-      <input
-        type="text"
-        placeholder="Full Name"
-        style={{ width: "300px", padding: "10px", margin: "10px" }}
-      />
-      <br />
+      <form onSubmit={handleRegister}>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{
+            width: "300px",
+            padding: "10px",
+            margin: "10px",
+          }}
+        />
 
-      <input
-        type="email"
-        placeholder="Email"
-        style={{ width: "300px", padding: "10px", margin: "10px" }}
-      />
-      <br />
+        <br />
 
-      <input
-        type="password"
-        placeholder="Password"
-        style={{ width: "300px", padding: "10px", margin: "10px" }}
-      />
-      <br />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "300px",
+            padding: "10px",
+            margin: "10px",
+          }}
+        />
 
-      <button
-        style={{
-          background: "green",
-          color: "white",
-          padding: "10px 20px",
-          border: "none",
-        }}
-      >
-        Register
-      </button>
+        <br />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: "300px",
+            padding: "10px",
+            margin: "10px",
+          }}
+        />
+
+        <br />
+
+        <button
+          type="submit"
+          style={{
+            width: "320px",
+            padding: "10px",
+            backgroundColor: "green",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Register
+        </button>
+      </form>
     </div>
   );
 }

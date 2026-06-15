@@ -1,59 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Doctors() {
+  const [search, setSearch] = useState("");
+
   const doctors = [
     {
+      id: 1,
       name: "Dr. Anitha",
       specialization: "Cardiologist",
       experience: "5 Years",
-      fee: 500,
+      fee: "₹500",
+      hospital: "Apollo Hospitals",
+      rating: "⭐⭐⭐⭐⭐",
     },
     {
+      id: 2,
       name: "Dr. Ravi",
       specialization: "Dermatologist",
       experience: "8 Years",
-      fee: 700,
+      fee: "₹700",
+      hospital: "Yashoda Hospitals",
+      rating: "⭐⭐⭐⭐⭐",
     },
     {
+      id: 3,
       name: "Dr. Priya",
       specialization: "Neurologist",
       experience: "10 Years",
-      fee: 1000,
+      fee: "₹1000",
+      hospital: "Care Hospitals",
+      rating: "⭐⭐⭐⭐⭐",
     },
   ];
 
+  const filteredDoctors = doctors.filter(
+    (doctor) =>
+      doctor.name.toLowerCase().includes(search.toLowerCase()) ||
+      doctor.specialization
+        .toLowerCase()
+        .includes(search.toLowerCase())
+  );
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>👨‍⚕️ Doctors List</h1>
+    <div className="container mt-4">
+      <h1 className="text-center mb-4">
+        👨‍⚕️ Find Your Doctor
+      </h1>
 
-      {doctors.map((doctor, index) => (
-        <div
-          key={index}
-          style={{
-            border: "1px solid #ccc",
-            padding: "15px",
-            marginBottom: "15px",
-            borderRadius: "10px",
-          }}
-        >
-          <h3>{doctor.name}</h3>
-          <p>Specialization: {doctor.specialization}</p>
-          <p>Experience: {doctor.experience}</p>
-          <p>Consultation Fee: ₹{doctor.fee}</p>
+      <input
+        type="text"
+        className="form-control mb-4"
+        placeholder="🔍 Search by doctor name or specialization..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-          <button
-            style={{
-              background: "green",
-              color: "white",
-              padding: "10px",
-              border: "none",
-              borderRadius: "5px",
-            }}
-          >
-            Book Appointment
-          </button>
-        </div>
-      ))}
+      <div className="row">
+        {filteredDoctors.map((doctor) => (
+          <div className="col-md-4 mb-4" key={doctor.id}>
+            <div className="card shadow h-100">
+              <div className="card-body">
+
+                <h4>{doctor.name}</h4>
+
+                <p>
+                  <strong>Specialization:</strong>{" "}
+                  {doctor.specialization}
+                </p>
+
+                <p>
+                  <strong>Experience:</strong>{" "}
+                  {doctor.experience}
+                </p>
+
+                <p>
+                  <strong>Hospital:</strong>{" "}
+                  {doctor.hospital}
+                </p>
+
+                <p>
+                  <strong>Consultation Fee:</strong>{" "}
+                  {doctor.fee}
+                </p>
+
+                <p>
+                  <strong>Rating:</strong>{" "}
+                  {doctor.rating}
+                </p>
+
+                <Link
+                  to="/doctor-profile"
+                  className="btn btn-primary me-2"
+                >
+                  View Profile
+                </Link>
+
+                <Link
+                  to="/book"
+                  className="btn btn-success"
+                >
+                  Book Now
+                </Link>
+
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

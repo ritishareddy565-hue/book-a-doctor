@@ -5,70 +5,52 @@ function DoctorProfile() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: "30px" }}>
-      <div
-        style={{
-          maxWidth: "700px",
-          margin: "auto",
-          border: "1px solid #ddd",
-          borderRadius: "10px",
-          padding: "25px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-        }}
-      >
-        <h1>👨‍⚕️ Doctor Profile</h1>
+    <div className="container mt-5">
+      <div className="card shadow p-4">
 
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/387/387561.png"
-          alt="Doctor"
-          width="120"
-        />
+        <div className="text-center">
+          <h1>👨‍⚕️ Dr. Anitha</h1>
+          <h4>Cardiologist</h4>
+          <p>⭐⭐⭐⭐⭐ (4.9 Rating)</p>
+        </div>
 
-        <h2>Dr. Anitha</h2>
+        <hr />
 
-        <p>
-          <strong>Specialization:</strong> Cardiologist
-        </p>
+        <div className="row">
+          <div className="col-md-6">
+            <p><strong>Hospital:</strong> Apollo Hospitals</p>
+            <p><strong>Experience:</strong> 5 Years</p>
+            <p><strong>Qualification:</strong> MBBS, MD</p>
+          </div>
 
-        <p>
-          <strong>Experience:</strong> 5 Years
-        </p>
+          <div className="col-md-6">
+            <p><strong>Location:</strong> Hyderabad</p>
+            <p><strong>Consultation Fee:</strong> ₹500</p>
+            <p><strong>Available:</strong> Mon - Sat</p>
+          </div>
+        </div>
 
-        <p>
-          <strong>Consultation Fee:</strong> ₹500
-        </p>
+        <hr />
+
+        <h4>About Doctor</h4>
 
         <p>
-          <strong>Hospital:</strong> Apollo Hospitals
+          Experienced Cardiologist specializing in
+          heart disease diagnosis, ECG analysis,
+          hypertension management and preventive care.
         </p>
 
-        <p>
-          <strong>Rating:</strong> ⭐⭐⭐⭐⭐
-        </p>
+        <h4>Available Time</h4>
 
-        <p>
-          <strong>Available:</strong> Mon - Sat
-        </p>
-
-        <p>
-          Experienced cardiologist specializing in heart disease diagnosis,
-          treatment, and preventive care.
-        </p>
+        <p>10:00 AM - 5:00 PM</p>
 
         <button
+          className="btn btn-success"
           onClick={() => navigate("/book")}
-          style={{
-            background: "#28a745",
-            color: "white",
-            padding: "12px 25px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
         >
-          Book Appointment
+          📅 Book Appointment
         </button>
+
       </div>
     </div>
   );
