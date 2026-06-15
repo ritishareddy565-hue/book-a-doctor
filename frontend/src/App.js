@@ -1,7 +1,7 @@
-import Login from "./Login";
+import Doctors from "./Doctors";
 
 function App() {
-  return <Login />;
+  return <Doctors />;
 }
 
 export default App;
