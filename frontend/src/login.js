@@ -7,7 +7,9 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
     if (email && password) {
       alert("Login Successful!");
       navigate("/dashboard");
@@ -17,48 +19,56 @@ function Login() {
   };
 
   return (
-    <div style={{ padding: "40px", textAlign: "center" }}>
-      <h1>🔐 Login Page</h1>
+    <div
+      style={{
+        width: "400px",
+        margin: "50px auto",
+        padding: "20px",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+      }}
+    >
+      <h1>🔐 Login</h1>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{
-          width: "300px",
-          padding: "10px",
-          margin: "10px",
-        }}
-      />
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
+        />
 
-      <br />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
+        />
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        style={{
-          width: "300px",
-          padding: "10px",
-          margin: "10px",
-        }}
-      />
-
-      <br />
-
-      <button
-        onClick={handleLogin}
-        style={{
-          background: "green",
-          color: "white",
-          padding: "10px 20px",
-          border: "none",
-        }}
-      >
-        Login
-      </button>
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "10px",
+            background: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+          }}
+        >
+          Login
+        </button>
+      </form>
     </div>
   );
 }

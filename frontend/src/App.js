@@ -12,6 +12,7 @@ import MyAppointments from "./MyAppointments";
 import Profile from "./Profile";
 import PatientDashboard from "./PatientDashboard";
 import DoctorDashboard from "./DoctorDashboard";
+import AdminDashboard from "./AdminDashboard";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />
+
+        <Route path="/dashboard" element={<PatientDashboard />} />
 
         <Route path="/doctors" element={<Doctors />} />
 
@@ -45,13 +48,13 @@ function App() {
         <Route path="/profile" element={<Profile />} />
 
         <Route
-          path="/dashboard"
-          element={<PatientDashboard />}
+          path="/doctor-dashboard"
+          element={<DoctorDashboard />}
         />
 
         <Route
-          path="/doctor-dashboard"
-          element={<DoctorDashboard />}
+          path="/admin-dashboard"
+          element={<AdminDashboard />}
         />
       </Routes>
     </Router>

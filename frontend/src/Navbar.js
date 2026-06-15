@@ -31,6 +31,13 @@ function Navbar() {
       </Link>
 
       <Link
+        to="/dashboard"
+        style={{ color: "white", marginRight: "15px" }}
+      >
+        Dashboard
+      </Link>
+
+      <Link
         to="/doctors"
         style={{ color: "white", marginRight: "15px" }}
       >
@@ -63,6 +70,13 @@ function Navbar() {
         style={{ color: "white", marginRight: "15px" }}
       >
         Doctor Dashboard
+      </Link>
+
+      <Link
+        to="/admin-dashboard"
+        style={{ color: "white", marginRight: "15px" }}
+      >
+        Admin Dashboard
       </Link>
 
       <Link
