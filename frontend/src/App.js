@@ -1,7 +1,13 @@
-import MyAppointments from "./MyAppointments";
+import Navbar from "./Navbar";
+import Home from "./Home";
 
 function App() {
-  return <MyAppointments />;
+  return (
+    <>
+      <Navbar />
+      <Home />
+    </>
+  );
 }
 
 export default App;
