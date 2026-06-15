@@ -1,25 +1,41 @@
+import React from "react";
+
 function Login() {
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>Book A Doctor</h1>
+    <div style={{ width: "350px", margin: "50px auto" }}>
+      <h2>🔐 Login Page</h2>
 
       <input
         type="email"
-        placeholder="Enter Email"
+        placeholder="Email"
+        style={{
+          width: "100%",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
       />
-
-      <br />
-      <br />
 
       <input
         type="password"
-        placeholder="Enter Password"
+        placeholder="Password"
+        style={{
+          width: "100%",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
       />
 
-      <br />
-      <br />
-
-      <button>Login</button>
+      <button
+        style={{
+          width: "100%",
+          padding: "10px",
+          background: "green",
+          color: "white",
+          border: "none",
+        }}
+      >
+        Login
+      </button>
     </div>
   );
 }

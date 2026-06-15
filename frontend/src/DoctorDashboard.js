@@ -1,32 +1,41 @@
+import React from "react";
+
 function DoctorDashboard() {
   return (
-    <div className="container mt-5">
-      <h1>Doctor Dashboard</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>👨‍⚕️ Doctor Dashboard</h1>
 
-      <div className="card p-3 mt-3">
-        <h3>Welcome Doctor</h3>
-        <p>Manage appointments and profile.</p>
-      </div>
+      <h3>Welcome Dr. Anitha</h3>
 
-      <div className="row mt-4">
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5>Pending Appointments</h5>
-          </div>
-        </div>
+      <table
+        border="1"
+        cellPadding="10"
+        style={{ marginTop: "20px" }}
+      >
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
 
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5>Approved Appointments</h5>
-          </div>
-        </div>
+        <tbody>
+          <tr>
+            <td>Ritisha</td>
+            <td>20-06-2026</td>
+            <td>Pending</td>
 
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5>Profile</h5>
-          </div>
-        </div>
-      </div>
+            <td>
+              <button>Approve</button>
+              <button style={{ marginLeft: "10px" }}>
+                Reject
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
