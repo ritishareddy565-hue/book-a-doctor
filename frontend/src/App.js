@@ -1,7 +1,7 @@
-import Doctors from "./Doctors";
+import MyAppointments from "./MyAppointments";
 
 function App() {
-  return <Doctors />;
+  return <MyAppointments />;
 }
 
 export default App;
